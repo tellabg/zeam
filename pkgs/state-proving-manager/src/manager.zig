@@ -192,7 +192,7 @@ pub fn verify_transition(stf_proof: types.BeamSTFProof, state_root: types.Bytes3
     const valid = switch (opts.zkvm) {
         .risc0 => |risc0cfg| risc0_verify_fn(risc0cfg.program_path.ptr, risc0cfg.program_path.len, stf_proof.proof.ptr, stf_proof.proof.len),
         .openvm => |openvmcfg| openvm_verify_fn(openvmcfg.program_path.ptr, openvmcfg.program_path.len, stf_proof.proof.ptr, stf_proof.proof.len),
-        .sp1 => |sp1cfg| sp1_verify(sp1cfg.program_path.ptr, sp1cfg.program_path.len, stf_proof.proof.ptr, stf_proof.proof.len),
+        .sp1 => |sp1cfg| sp1_verify_fn(sp1cfg.program_path.ptr, sp1cfg.program_path.len, stf_proof.proof.ptr, stf_proof.proof.len),
         .dummy => blk: {
             const expected_proof = "DUMMY_PROOF_V1";
             if (stf_proof.proof.len >= expected_proof.len) {
