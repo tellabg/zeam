@@ -720,14 +720,14 @@ fn build_rust_project(b: *Builder, path: []const u8, prover: ProverChoice) *Buil
             "openvm-glue", "-p",        "hashsig-glue",   "-p", "multisig-glue",
         }),
         .sp1 => b.addSystemCommand(&.{
-            "cargo",    "+nightly",  "-C",            path, "-Z",            "unstable-options",
-            "build",    "--profile", "sp1-release",   "-p", "libp2p-glue",   "-p",
-            "sp1-glue", "-p",        "hashsig-glue",  "-p", "multisig-glue",
+            "cargo",    "+nightly",  "-C",           path, "-Z",            "unstable-options",
+            "build",    "--profile", "sp1-release",  "-p", "libp2p-glue",   "-p",
+            "sp1-glue", "-p",        "hashsig-glue", "-p", "multisig-glue",
         }),
         .ziren => b.addSystemCommand(&.{
-            "cargo",      "+nightly",  "-C",              path, "-Z",            "unstable-options",
-            "build",      "--profile", "ziren-release",   "-p", "libp2p-glue",   "-p",
-            "ziren-glue", "-p",        "hashsig-glue",    "-p", "multisig-glue",
+            "cargo",      "+nightly",  "-C",            path, "-Z",            "unstable-options",
+            "build",      "--profile", "ziren-release", "-p", "libp2p-glue",   "-p",
+            "ziren-glue", "-p",        "hashsig-glue",  "-p", "multisig-glue",
         }),
         .all => b.addSystemCommand(&.{
             "cargo", "+nightly",  "-C",    path, "-Z", "unstable-options",
